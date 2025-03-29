@@ -1,0 +1,18 @@
+app_name = "vibe-coding-101"
+app_type = "static"
+app_origin = "github.com/Shopify/vibe-coding-101"
+
+[build]
+command = "npm run build"
+output_dir = "dist"
+
+[static]
+dir = "dist"
+index_file = "index.html"
+
+[[routes]]
+path = "/*"
+file = "index.html"
+
+[auth]
+type = "shopify" 

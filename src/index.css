@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-neon-dark text-white font-sans;
+    background-image: 
+      linear-gradient(to bottom, rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B027FF' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer components {
+  .neon-button {
+    @apply px-6 py-3 rounded-md font-semibold transition-all duration-200 relative overflow-hidden;
+  }
+
+  .neon-button::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-neon-pink to-neon-purple opacity-0 transition-opacity duration-200;
+  }
+
+  .neon-button:hover::before {
+    @apply opacity-100;
+  }
+
+  .neon-button-primary {
+    @apply neon-button bg-neon-pink text-black shadow-neon-pink hover:shadow-neon-pink/50;
+  }
+
+  .neon-button-secondary {
+    @apply neon-button border-2 border-neon-purple text-neon-purple hover:bg-neon-purple/10;
+  }
+
+  .neon-heading {
+    @apply text-4xl font-bold mb-6 text-neon-cyan relative;
+    text-shadow: 0 0 10px rgba(0, 231, 255, 0.5);
+  }
+
+  .neon-subheading {
+    @apply text-2xl font-semibold mb-4 text-neon-pink relative;
+    text-shadow: 0 0 10px rgba(255, 62, 223, 0.5);
+  }
+
+  .neon-card {
+    @apply bg-neon-dark-gray p-6 rounded-lg border border-neon-purple/20 shadow-neon-purple/10 relative overflow-hidden;
+    transition: all 0.3s ease;
+  }
+
+  .neon-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-neon-purple/0 via-neon-purple/5 to-neon-purple/0;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .neon-card:hover::before {
+    transform: translateX(100%);
+  }
+
+  .neon-link {
+    @apply text-neon-cyan hover:text-neon-pink transition-colors duration-200 relative;
+  }
+
+  .neon-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-neon-pink transition-all duration-200;
+  }
+
+  .neon-link:hover::after {
+    @apply w-full;
+  }
+
+  .neon-input {
+    @apply bg-neon-dark-gray border border-neon-purple/20 rounded-md px-4 py-2 focus:outline-none focus:border-neon-cyan focus:shadow-neon-cyan/20;
+  }
+
+  .neon-grid {
+    @apply relative;
+    background-image: 
+      linear-gradient(to right, rgba(176, 39, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(176, 39, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neon-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neon-purple/20 rounded-full hover:bg-neon-purple/40 transition-colors duration-200;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-neon-pink/20 text-white;
+}
+
+/* Neon text animation */
+@keyframes neon-flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 10px #FF3EDF,
+                 0 0 20px #FF3EDF,
+                 0 0 30px #FF3EDF;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.animate-glitch {
+  animation: glitch 0.3s linear infinite;
+}
+
+/* Cyberpunk corner decorations */
+.cyber-corner {
+  @apply absolute w-4 h-4 border-neon-cyan;
+}
+
+.cyber-corner-top-left {
+  @apply cyber-corner top-0 left-0 border-t-2 border-l-2;
+}
+
+.cyber-corner-top-right {
+  @apply cyber-corner top-0 right-0 border-t-2 border-r-2;
+}
+
+.cyber-corner-bottom-left {
+  @apply cyber-corner bottom-0 left-0 border-b-2 border-l-2;
+}
+
+.cyber-corner-bottom-right {
+  @apply cyber-corner bottom-0 right-0 border-b-2 border-r-2;
+}

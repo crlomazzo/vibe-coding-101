@@ -1,0 +1,38 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import Navigation from './components/Navigation';
+import ShopifyAuth from './components/PasswordProtection';
+import Home from './pages/Home';
+import WhatIsVibeCoding from './pages/WhatIsVibeCoding';
+import Blockers from './pages/Blockers';
+import Examples from './pages/Examples';
+import GettingStarted from './pages/GettingStarted';
+import Library from './pages/Library';
+import Evolution from './pages/Evolution';
+
+function App() {
+  return (
+    <Router>
+      <ShopifyAuth>
+        <div className="min-h-screen bg-neon-dark">
+          <Navigation />
+          <main className="pt-16">
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/what-is-vibe-coding" element={<WhatIsVibeCoding />} />
+                <Route path="/blockers" element={<Blockers />} />
+                <Route path="/examples" element={<Examples />} />
+                <Route path="/getting-started" element={<GettingStarted />} />
+                <Route path="/library" element={<Library />} />
+                <Route path="/evolution" element={<Evolution />} />
+              </Routes>
+            </AnimatePresence>
+          </main>
+        </div>
+      </ShopifyAuth>
+    </Router>
+  );
+}
+
+export default App;
