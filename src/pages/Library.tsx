@@ -10,9 +10,15 @@ interface Resource {
 const Library = () => {
   const resources: Resource[] = [
     {
+      title: "Getting Started with Vibe Coding",
+      description: "Learn the basics and get started with Vibe Coding!",
+      link: "https://share.descript.com/view/tXbEINfJxsQ",
+      type: "video"
+    },
+    {
       title: "Vibe Coding Examples 1",
       description: "Your first steps into coding - we'll walk you through everything!",
-      link: "https://share.descript.com/view/tXbEINfJxsQ",
+      link: "https://share.descript.com/embed/mhwxLahDzMa",
       type: "video"
     },
     {

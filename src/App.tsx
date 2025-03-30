@@ -1,10 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Navigation from './components/Navigation';
 import PasswordProtection from './components/PasswordProtection';
 import Home from './pages/Home';
 import WhatIsVibeCoding from './pages/WhatIsVibeCoding';
-import Blockers from './pages/Blockers';
 import Examples from './pages/Examples';
 import GettingStarted from './pages/GettingStarted';
 import Library from './pages/Library';
@@ -15,13 +13,11 @@ function App() {
     <Router basename="/vibe-coding-101">
       <PasswordProtection>
         <div className="min-h-screen bg-neon-dark">
-          <Navigation />
           <main className="pt-16">
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/what-is-vibe-coding" element={<WhatIsVibeCoding />} />
-                <Route path="/blockers" element={<Blockers />} />
                 <Route path="/examples" element={<Examples />} />
                 <Route path="/getting-started" element={<GettingStarted />} />
                 <Route path="/library" element={<Library />} />

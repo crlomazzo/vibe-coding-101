@@ -1,13 +1,17 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const Navigation = () => {
+interface NavigationProps {
+  onSignOut?: () => void;
+  isAuthenticated?: boolean;
+}
+
+const Navigation = ({ onSignOut, isAuthenticated }: NavigationProps) => {
   const location = useLocation();
 
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/what-is-vibe-coding', label: 'What is Vibe Coding?' },
-    { path: '/blockers', label: 'Blockers' },
     { path: '/examples', label: 'Examples' },
     { path: '/getting-started', label: 'Getting Started' },
     { path: '/library', label: 'Library' },
@@ -57,6 +61,14 @@ const Navigation = () => {
                   <div className="absolute inset-0 bg-neon-pink/0 group-hover:bg-neon-pink/10 transition-colors duration-200 rounded" />
                 </Link>
               ))}
+              {isAuthenticated && onSignOut && (
+                <button
+                  onClick={onSignOut}
+                  className="px-3 py-1.5 text-sm bg-transparent text-neon-cyan border border-neon-cyan/50 rounded hover:text-neon-pink hover:border-neon-pink/50 transition-colors duration-200 ml-4"
+                >
+                  Sign Out
+                </button>
+              )}
             </div>
           </div>
         </div>

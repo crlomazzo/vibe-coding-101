@@ -24,11 +24,6 @@ const GettingStarted = () => {
           backupLink: "https://shopify.com/chat"
         },
         {
-          name: "Hemingway by Tobi",
-          description: "AI agent specialized in writing in the Shopify way.",
-          link: "https://chat.shopify.io/c/new?agent_id=agent_es9uWyu9Ub8nDjwSuRtLv"
-        },
-        {
           name: "Shopify Prompts Vault",
           description: "Collection of curated prompts for effective AI interactions.",
           link: "https://vault.shopify.io/prompts/"
@@ -149,11 +144,6 @@ const GettingStarted = () => {
                     description: "Your friendly AI helper that's ready to answer questions and guide you through coding.",
                     link: "https://chat.shopify.io/c/new",
                     backupLink: "https://shopify.com/chat"
-                  },
-                  {
-                    name: "Hemingway by Tobi",
-                    description: "A helpful AI friend that knows how to explain things the Shopify way.",
-                    link: "https://chat.shopify.io/c/new?agent_id=agent_es9uWyu9Ub8nDjwSuRtLv"
                   },
                   {
                     name: "Shopify Prompts Vault",

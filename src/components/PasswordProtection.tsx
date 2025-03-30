@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Navigation from './Navigation';
 
 interface PasswordProtectionProps {
   children: React.ReactNode;
@@ -21,7 +22,7 @@ const PasswordProtection = ({ children }: PasswordProtectionProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'Shopify') {
+    if (password === 'shopify') {
       setIsAuthenticated(true);
       localStorage.setItem('auth', 'true');
       setError('');
@@ -50,7 +51,7 @@ const PasswordProtection = ({ children }: PasswordProtectionProps) => {
             Vibe Coding 101
           </h1>
           <p className="text-neon-cyan mb-8">
-            This site is only accessible to Shopify employees.
+            This site is only accessible to employees.
           </p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="relative">
@@ -69,6 +70,7 @@ const PasswordProtection = ({ children }: PasswordProtectionProps) => {
                 {showPassword ? "Hide" : "Show"}
               </button>
             </div>
+            <p className="text-neon-cyan text-sm italic">Hint: Where you work</p>
             {error && (
               <motion.p 
                 className="text-red-500"
@@ -95,15 +97,10 @@ const PasswordProtection = ({ children }: PasswordProtectionProps) => {
   }
 
   return (
-    <div className="relative">
-      <button
-        onClick={handleSignOut}
-        className="fixed top-4 right-4 z-50 px-4 py-2 bg-neon-pink text-neon-dark rounded-lg hover:bg-neon-pink/90 transition-colors duration-200"
-      >
-        Sign Out
-      </button>
+    <>
+      <Navigation isAuthenticated={isAuthenticated} onSignOut={handleSignOut} />
       {children}
-    </div>
+    </>
   );
 };
 
