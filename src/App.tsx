@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
-import ShopifyAuth from './components/PasswordProtection';
+import PasswordProtection from './components/PasswordProtection';
 import Home from './pages/Home';
 import WhatIsVibeCoding from './pages/WhatIsVibeCoding';
 import Blockers from './pages/Blockers';
@@ -12,8 +12,8 @@ import Evolution from './pages/Evolution';
 
 function App() {
   return (
-    <Router>
-      <ShopifyAuth>
+    <Router basename="/vibe-coding-101">
+      <PasswordProtection>
         <div className="min-h-screen bg-neon-dark">
           <Navigation />
           <main className="pt-16">
@@ -30,7 +30,7 @@ function App() {
             </AnimatePresence>
           </main>
         </div>
-      </ShopifyAuth>
+      </PasswordProtection>
     </Router>
   );
 }

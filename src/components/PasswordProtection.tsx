@@ -5,36 +5,37 @@ interface PasswordProtectionProps {
   children: React.ReactNode;
 }
 
-const ShopifyAuth = ({ children }: PasswordProtectionProps) => {
+const PasswordProtection = ({ children }: PasswordProtectionProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    // Check if we're on a Shopify domain
-    const isShopifyDomain = window.location.hostname.endsWith('.shopify.io') || 
-                           window.location.hostname.endsWith('.shopify.com');
-    
-    if (isShopifyDomain) {
+    // Check if already authenticated
+    const auth = localStorage.getItem('auth');
+    if (auth === 'true') {
       setIsAuthenticated(true);
     }
-    setIsLoading(false);
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-neon-dark flex items-center justify-center px-4">
-        <motion.div 
-          className="neon-card max-w-md w-full p-8 text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <h1 className="text-3xl font-bold text-neon-pink mb-6 animate-neon-flicker">
-            Loading...
-          </h1>
-        </motion.div>
-      </div>
-    );
-  }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === 'Shopify') {
+      setIsAuthenticated(true);
+      localStorage.setItem('auth', 'true');
+      setError('');
+    } else {
+      setError('Incorrect password');
+      setPassword('');
+    }
+  };
+
+  const handleSignOut = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('auth');
+    setPassword('');
+  };
 
   if (!isAuthenticated) {
     return (
@@ -49,8 +50,41 @@ const ShopifyAuth = ({ children }: PasswordProtectionProps) => {
             Vibe Coding 101
           </h1>
           <p className="text-neon-cyan mb-8">
-            This site is only accessible to Shopify employees. Please access through a Shopify domain.
+            This site is only accessible to Shopify employees.
           </p>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter password"
+                className="w-full p-3 bg-neon-dark-gray text-neon-cyan border-2 border-neon-pink rounded-lg focus:outline-none focus:border-neon-cyan transition-colors"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neon-cyan hover:text-neon-pink transition-colors"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+            {error && (
+              <motion.p 
+                className="text-red-500"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                {error}
+              </motion.p>
+            )}
+            <button
+              type="submit"
+              className="w-full py-3 px-6 bg-neon-pink text-neon-dark font-semibold rounded-lg hover:bg-neon-pink/90 transition-colors duration-200"
+            >
+              Enter
+            </button>
+          </form>
           <div className="cyber-corner-top-left" />
           <div className="cyber-corner-top-right" />
           <div className="cyber-corner-bottom-left" />
@@ -60,7 +94,17 @@ const ShopifyAuth = ({ children }: PasswordProtectionProps) => {
     );
   }
 
-  return <>{children}</>;
+  return (
+    <div className="relative">
+      <button
+        onClick={handleSignOut}
+        className="fixed top-4 right-4 z-50 px-4 py-2 bg-neon-pink text-neon-dark rounded-lg hover:bg-neon-pink/90 transition-colors duration-200"
+      >
+        Sign Out
+      </button>
+      {children}
+    </div>
+  );
 };
 
-export default ShopifyAuth; 
+export default PasswordProtection; 

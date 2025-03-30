@@ -10,34 +10,34 @@ interface Resource {
 const Library = () => {
   const resources: Resource[] = [
     {
-      title: "Vibe Coding 101",
-      description: "Introduction to vibe coding for Operations professionals",
-      link: "https://example.com/vibe-coding-101",
+      title: "Vibe Coding Examples 1",
+      description: "Your first steps into coding - we'll walk you through everything!",
+      link: "https://share.descript.com/view/tXbEINfJxsQ",
       type: "video"
     },
     {
-      title: "Vibe Coding 102",
-      description: "Advanced concepts and practical applications",
+      title: "Next Level Tips",
+      description: "Ready for more? Learn some cool tricks to make your work even better!",
       link: "https://example.com/vibe-coding-102",
       type: "video"
     },
     {
-      title: "GPT for Review Prep",
-      description: "Using AI to prepare for reviews and presentations",
-      link: "https://example.com/gpt-review-prep",
-      type: "document"
+      title: "Making Reviews Better with AI",
+      description: "Learn how to use AI to prepare for meetings and presentations.",
+      link: "https://share.descript.com/view/Hs2Hs5Hs5Hs",
+      type: "video"
     },
     {
-      title: "Product Labeling QA",
-      description: "Example of automated quality control processes",
-      link: "https://example.com/product-labeling-qa",
-      type: "document"
+      title: "Checking Product Labels",
+      description: "See how to check your work automatically instead of doing it by hand.",
+      link: "https://share.descript.com/view/Hs2Hs5Hs5Hs",
+      type: "video"
     },
     {
-      title: "Creating a Shop Mini",
-      description: "Step-by-step guide to creating a mini shop",
-      link: "https://example.com/shop-mini-guide",
-      type: "document"
+      title: "Building a Mini Shop",
+      description: "Follow along as we create a small shop step by step.",
+      link: "https://share.descript.com/view/Hs2Hs5Hs5Hs",
+      type: "video"
     }
   ];
 
@@ -60,7 +60,7 @@ const Library = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold text-neon-pink mb-6 animate-neon-flicker">
-              Vibe Coding Library
+              Learning Resources
             </h1>
             <div className="cyber-corner-top-left" />
             <div className="cyber-corner-top-right" />
@@ -74,7 +74,7 @@ const Library = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            A collection of resources and examples from Operations professionals who are using code to solve real problems.
+            Helpful guides and examples from your fellow Shopify team members who started just like you!
           </motion.p>
         </div>
       </section>
@@ -93,12 +93,10 @@ const Library = () => {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-neon-pink">{resource.title}</h3>
-                  <span className={`text-2xl ${resource.type === 'video' ? 'text-neon-pink' : 'text-neon-cyan'}`}>
-                    {resource.type === 'video' ? '🎥' : '📄'}
-                  </span>
+                <div className="text-4xl mb-4">
+                  {resource.type === 'video' ? '📺' : '📄'}
                 </div>
+                <h3 className="text-xl font-semibold text-neon-pink mb-2">{resource.title}</h3>
                 <p className="text-neon-light-gray mb-4">{resource.description}</p>
                 <a
                   href={resource.link}
@@ -106,7 +104,7 @@ const Library = () => {
                   rel="noopener noreferrer"
                   className="neon-button-secondary"
                 >
-                  View Resource
+                  Check it Out
                 </a>
                 <div className="cyber-corner-top-left" />
                 <div className="cyber-corner-top-right" />
@@ -118,7 +116,7 @@ const Library = () => {
         </div>
       </section>
 
-      {/* Contributing Section */}
+      {/* Share Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neon-dark-gray relative neon-grid">
         <div className="max-w-7xl mx-auto">
           <motion.h2 
@@ -128,29 +126,29 @@ const Library = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Share Your Examples
+            Share Your Story
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Document Your Work",
-                description: "Share how you're using code to solve Operations challenges.",
+                title: "Write It Down",
+                description: "Share how you solved a problem - your experience could help others!",
                 icon: "📝"
               },
               {
-                title: "Create Tutorials",
-                description: "Help others learn from your experiences and solutions.",
+                title: "Show Others How",
+                description: "Make a simple guide to help others learn from what you figured out.",
                 icon: "🎓"
               },
               {
-                title: "Build Community",
-                description: "Connect with other Operations professionals learning to code.",
+                title: "Join the Fun",
+                description: "Meet other Shopify folks who are learning to code just like you!",
                 icon: "🤝"
               }
-            ].map((step, index) => (
+            ].map((item, index) => (
               <motion.div
-                key={step.title}
+                key={item.title}
                 className="neon-card group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -159,10 +157,10 @@ const Library = () => {
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-200">
-                  {step.icon}
+                  {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-neon-pink mb-2">{step.title}</h3>
-                <p className="text-neon-light-gray">{step.description}</p>
+                <h3 className="text-xl font-semibold text-neon-pink mb-2">{item.title}</h3>
+                <p className="text-neon-light-gray">{item.description}</p>
                 <div className="cyber-corner-top-left" />
                 <div className="cyber-corner-top-right" />
                 <div className="cyber-corner-bottom-left" />

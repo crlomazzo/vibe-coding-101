@@ -20,7 +20,7 @@ const Blockers = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold text-neon-pink mb-6 animate-neon-flicker">
-              Common Blockers
+              Getting Stuck? We've Got You!
             </h1>
             <div className="cyber-corner-top-left" />
             <div className="cyber-corner-top-right" />
@@ -34,7 +34,7 @@ const Blockers = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Overcoming obstacles on your coding journey. We've all been there, and we're here to help you push through.
+            Everyone hits roadblocks when learning to code - it's totally normal! Here's how to get past the tricky parts and keep moving forward.
           </motion.p>
         </div>
       </section>
@@ -55,22 +55,22 @@ const Blockers = () => {
                 {[
                   {
                     title: "Imposter Syndrome",
-                    description: "Feeling like you don't belong or aren't good enough to code.",
+                    description: "Feeling like you're not cut out for coding or that everyone else knows more than you.",
                     icon: "😔"
                   },
                   {
-                    title: "Overwhelming Complexity",
-                    description: "Getting lost in technical jargon and complex concepts.",
+                    title: "Feeling Overwhelmed",
+                    description: "Getting confused by unfamiliar words and concepts that seem too complicated.",
                     icon: "🤯"
                   },
                   {
                     title: "Time Management",
-                    description: "Finding time to learn while balancing work and life.",
+                    description: "Finding time to learn while juggling your daily responsibilities.",
                     icon: "⏰"
                   },
                   {
-                    title: "Fear of Failure",
-                    description: "Worrying about making mistakes or not being able to solve problems.",
+                    title: "Fear of Mistakes",
+                    description: "Worrying about getting things wrong or feeling stuck on problems.",
                     icon: "😰"
                   }
                 ].map((challenge, index) => (
@@ -109,22 +109,22 @@ const Blockers = () => {
                 {[
                   {
                     title: "Start Small",
-                    description: "Begin with simple projects and gradually increase complexity.",
+                    description: "Begin with easy projects and work your way up to bigger ones step by step.",
                     icon: "🌱"
                   },
                   {
-                    title: "Use Modern Tools",
-                    description: "Leverage AI assistants and modern IDEs to help you learn.",
-                    icon: "🛠️"
+                    icon: "🛠️",
+                    title: "Use Helpful Tools",
+                    description: "Make learning easier with friendly tools like AI helpers and beginner-friendly code editors.",
                   },
                   {
-                    title: "Build a Routine",
-                    description: "Set aside dedicated time for learning, even if it's just 15 minutes a day.",
+                    title: "Create a Schedule",
+                    description: "Make learning a daily habit - even 15 minutes a day makes a difference!",
                     icon: "📅"
                   },
                   {
-                    title: "Join Communities",
-                    description: "Connect with others who are learning to code and share experiences.",
+                    title: "Join Others",
+                    description: "Meet other beginners and share your journey - you're not alone!",
                     icon: "👥"
                   }
                 ].map((solution, index) => (
@@ -170,18 +170,18 @@ const Blockers = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
               {
-                title: "Break It Down",
-                description: "Divide complex problems into smaller, manageable tasks.",
+                title: "Take Small Steps",
+                description: "Turn big challenges into smaller, easier tasks you can tackle one at a time.",
                 icon: "🎯"
               },
               {
-                title: "Celebrate Progress",
-                description: "Acknowledge and celebrate your achievements, no matter how small.",
+                title: "Celebrate Wins",
+                description: "Be proud of every step forward, no matter how small it seems.",
                 icon: "🎉"
               },
               {
-                title: "Stay Consistent",
-                description: "Regular practice is more effective than occasional deep dives.",
+                title: "Keep at It",
+                description: "Learning a little bit each day works better than cramming once in a while.",
                 icon: "⚡"
               }
             ].map((tip, index) => (
@@ -219,7 +219,7 @@ const Blockers = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Ready to Overcome Your Blockers?
+            Ready to Take Your First Step?
           </motion.h2>
           <motion.p 
             className="text-xl text-neon-light-gray mb-8 max-w-2xl mx-auto"
@@ -228,7 +228,7 @@ const Blockers = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Check out our getting started guide and begin your coding journey today
+            We'll show you exactly where to start and guide you along the way
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -237,7 +237,7 @@ const Blockers = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <a href="/getting-started" className="neon-button-primary">
-              Get Started
+              Start Here
             </a>
           </motion.div>
         </div>

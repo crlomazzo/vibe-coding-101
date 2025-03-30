@@ -121,7 +121,7 @@ const GettingStarted = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold text-neon-pink mb-6 animate-neon-flicker">
-              Getting Started
+              Your First Steps
             </h1>
             <div className="cyber-corner-top-left" />
             <div className="cyber-corner-top-right" />
@@ -135,115 +135,122 @@ const GettingStarted = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Essential tools and resources to help you begin your coding journey in Operations.
+            Here are some friendly tools to help you start your coding journey. Don't worry - we'll show you how to use them!
           </motion.p>
-        </div>
-      </section>
 
-      {/* Resources Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-12">
-            {resources.map((category, categoryIndex) => (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              >
-                <h2 className="neon-heading mb-6">{category.category}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {category.items.map((item, itemIndex) => (
-                    <motion.div
-                      key={item.name}
-                      className="neon-card group"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: (categoryIndex * 0.2) + (itemIndex * 0.1) }}
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <h3 className="text-xl font-semibold text-neon-pink mb-2">{item.name}</h3>
-                      <p className="text-neon-light-gray mb-4">{item.description}</p>
-                      <div className="flex gap-4">
-                        <a
-                          href={item.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="neon-button-secondary"
-                        >
-                          Visit Site
-                        </a>
-                        {item.backupLink && (
-                          <a
-                            href={item.backupLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="neon-button-secondary"
-                          >
-                            Backup Link
-                          </a>
-                        )}
-                      </div>
-                      <div className="cyber-corner-top-left" />
-                      <div className="cyber-corner-top-right" />
-                      <div className="cyber-corner-bottom-left" />
-                      <div className="cyber-corner-bottom-right" />
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tips Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-neon-dark-gray relative neon-grid">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2 
-            className="neon-heading text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            Tips for Using These Tools
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Resources Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                title: "Start Small",
-                description: "Begin with simple tasks and gradually increase complexity.",
-                icon: "🌱"
+                category: "Your AI Helpers",
+                items: [
+                  {
+                    name: "Shopify LibreChat",
+                    description: "Your friendly AI helper that's ready to answer questions and guide you through coding.",
+                    link: "https://chat.shopify.io/c/new",
+                    backupLink: "https://shopify.com/chat"
+                  },
+                  {
+                    name: "Hemingway by Tobi",
+                    description: "A helpful AI friend that knows how to explain things the Shopify way.",
+                    link: "https://chat.shopify.io/c/new?agent_id=agent_es9uWyu9Ub8nDjwSuRtLv"
+                  },
+                  {
+                    name: "Shopify Prompts Vault",
+                    description: "A collection of helpful questions you can ask AI to get better answers.",
+                    link: "https://vault.shopify.io/prompts/"
+                  }
+                ]
               },
               {
-                title: "Combine Tools",
-                description: "Use multiple tools together to create powerful workflows.",
-                icon: "🔄"
+                category: "Your Support Network",
+                items: [
+                  {
+                    name: "AI Centaurs Channel",
+                    description: "Meet other Shopify folks who are learning to use AI tools - everyone's learning together!",
+                    link: "slack://channel?team=shopify&id=ai-centaurs"
+                  },
+                  {
+                    name: "Cursor Channel",
+                    description: "Share tips and ask questions about using Cursor - it's okay to be new!",
+                    link: "slack://channel?team=shopify&id=cursor"
+                  }
+                ]
               },
               {
-                title: "Stay Organized",
-                description: "Keep track of your resources and document your progress.",
-                icon: "📝"
+                category: "Friendly Tools",
+                items: [
+                  {
+                    name: "Cursor",
+                    description: "A code editor that's like having a helpful friend right beside you as you code.",
+                    link: "https://cursor.sh"
+                  }
+                ]
+              },
+              {
+                category: "Making Things Look Great",
+                items: [
+                  {
+                    name: "Google Gemini",
+                    description: "Create beautiful images and graphics for your projects - no art skills needed!",
+                    link: "https://gemini.google.com"
+                  },
+                  {
+                    name: "ChatGPT & Sora",
+                    description: "Make amazing visuals and videos to show off your work.",
+                    link: "https://openai.com"
+                  }
+                ]
+              },
+              {
+                category: "Working Together",
+                items: [
+                  {
+                    name: "Notebook LM",
+                    description: "A simple way to organize your work and share ideas with your team.",
+                    link: "https://notebooklm.google.com"
+                  },
+                  {
+                    name: "Perplexity",
+                    description: "Find answers to your questions and learn more about any topic.",
+                    link: "https://perplexity.ai"
+                  }
+                ]
+              },
+              {
+                category: "Making Apps Work Together",
+                items: [
+                  {
+                    name: "Zapier",
+                    description: "Connect your favorite apps and make them work together - no coding needed!",
+                    link: "https://zapier.com"
+                  }
+                ]
               }
-            ].map((tip, index) => (
+            ].map((category, index) => (
               <motion.div
-                key={tip.title}
-                className="neon-card group"
+                key={category.category}
+                className="neon-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ scale: 1.02 }}
               >
-                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-200">
-                  {tip.icon}
+                <h3 className="text-xl font-semibold text-neon-pink mb-4">{category.category}</h3>
+                <div className="space-y-4">
+                  {category.items.map((item, i) => (
+                    <a
+                      key={i}
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-4 bg-neon-dark-gray rounded-lg hover:bg-neon-dark transition-colors duration-200"
+                    >
+                      <h4 className="text-lg font-medium text-neon-cyan mb-2">{item.name}</h4>
+                      <p className="text-neon-light-gray">{item.description}</p>
+                    </a>
+                  ))}
                 </div>
-                <h3 className="text-xl font-semibold text-neon-pink mb-2">{tip.title}</h3>
-                <p className="text-neon-light-gray">{tip.description}</p>
                 <div className="cyber-corner-top-left" />
                 <div className="cyber-corner-top-right" />
                 <div className="cyber-corner-bottom-left" />
@@ -251,6 +258,53 @@ const GettingStarted = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Tips Section */}
+          <motion.div
+            className="mt-20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="neon-heading text-center mb-8">Quick Tips</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Start Small",
+                  description: "Pick one simple task you want to make easier. Even a tiny improvement is a win!",
+                  icon: "🌱"
+                },
+                {
+                  title: "It's OK to Copy",
+                  description: "Learn from examples and adjust them to fit your needs - that's how everyone starts!",
+                  icon: "📝"
+                },
+                {
+                  title: "Ask Questions",
+                  description: "Don't be shy to ask for help - everyone was a beginner once!",
+                  icon: "🙋‍♀️"
+                }
+              ].map((tip, index) => (
+                <motion.div
+                  key={tip.title}
+                  className="neon-card text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                >
+                  <div className="text-4xl mb-4">{tip.icon}</div>
+                  <h3 className="text-xl font-semibold text-neon-pink mb-2">{tip.title}</h3>
+                  <p className="text-neon-light-gray">{tip.description}</p>
+                  <div className="cyber-corner-top-left" />
+                  <div className="cyber-corner-top-right" />
+                  <div className="cyber-corner-bottom-left" />
+                  <div className="cyber-corner-bottom-right" />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

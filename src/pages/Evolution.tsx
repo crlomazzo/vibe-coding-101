@@ -37,6 +37,13 @@ const Evolution = () => {
       time: "8:00 PM",
       videoUrl: "https://drive.google.com/file/d/1ZD9S07XTGKNqosOAq2396UFryWumKRnx/preview",
       description: "Final version with polished animations, complete content, and optimized performance"
+    },
+    {
+      version: "V5",
+      date: "March 29, 2024",
+      time: "7:45 PM",
+      videoUrl: "https://drive.google.com/file/d/1UHaSUEDUyU1mxUhbw7mq9HTW8g21qQUo/preview",
+      description: "Added authentication - plot twist: even the developer got locked out! 🔒 The ultimate test of security."
     }
   ];
 
@@ -59,7 +66,7 @@ const Evolution = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold text-neon-pink mb-6 animate-neon-flicker">
-              Evolution
+              Our Journey
             </h1>
             <div className="cyber-corner-top-left" />
             <div className="cyber-corner-top-right" />
@@ -73,61 +80,42 @@ const Evolution = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Watch how the Vibe Coding website evolved throughout its development journey.
+            See how this website grew from a simple idea into what you see today. Every step forward is progress!
           </motion.p>
-        </div>
-      </section>
 
-      {/* Timeline Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-24">
+          {/* Timeline Section */}
+          <div className="space-y-12">
             {versions.map((version, index) => (
               <motion.div
                 key={version.version}
-                className="relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                className="neon-card relative"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.8 }}
               >
-                {/* Timeline line */}
-                {index < versions.length - 1 && (
-                  <div className="absolute left-8 top-24 bottom-0 w-0.5 bg-neon-pink/30" />
-                )}
-
-                <div className="relative flex items-start">
-                  {/* Version marker */}
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-neon-dark border-2 border-neon-pink flex items-center justify-center">
-                    <span className="text-neon-pink font-bold">{version.version}</span>
+                <div className="flex flex-col md:flex-row gap-8">
+                  <div className="md:w-1/3">
+                    <h3 className="text-2xl font-semibold text-neon-pink mb-2">
+                      {version.version} - The {index === 0 ? "First" : index === 1 ? "Style" : index === 2 ? "Smooth" : index === 3 ? "Polished" : "Secure"} Step
+                    </h3>
+                    <p className="text-neon-cyan mb-2">{version.date}</p>
+                    <p className="text-neon-cyan mb-4">{version.time}</p>
+                    <p className="text-neon-light-gray">{version.description}</p>
                   </div>
-
-                  {/* Content */}
-                  <div className="ml-8 flex-grow">
-                    <div className="neon-card">
-                      <div className="mb-4">
-                        <h3 className="text-xl font-semibold text-neon-pink">{version.date}</h3>
-                        <p className="text-neon-cyan">{version.time}</p>
-                      </div>
-
-                      <div className="aspect-video w-full bg-neon-dark/50 rounded-lg overflow-hidden mb-4">
-                        <iframe
-                          className="w-full h-full"
-                          src={version.videoUrl}
-                          allow="autoplay"
-                          allowFullScreen
-                        />
-                      </div>
-
-                      <p className="text-neon-light-gray">{version.description}</p>
-
-                      <div className="cyber-corner-top-left" />
-                      <div className="cyber-corner-top-right" />
-                      <div className="cyber-corner-bottom-left" />
-                      <div className="cyber-corner-bottom-right" />
-                    </div>
+                  <div className="md:w-2/3 relative aspect-video">
+                    <iframe
+                      src={version.videoUrl}
+                      className="w-full h-full rounded-lg"
+                      allow="autoplay"
+                      {...(version.version === "V2" ? { muted: true } : {})}
+                    ></iframe>
                   </div>
                 </div>
+                <div className="cyber-corner-top-left" />
+                <div className="cyber-corner-top-right" />
+                <div className="cyber-corner-bottom-left" />
+                <div className="cyber-corner-bottom-right" />
               </motion.div>
             ))}
           </div>

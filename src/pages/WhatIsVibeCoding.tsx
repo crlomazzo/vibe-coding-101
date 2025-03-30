@@ -34,7 +34,7 @@ const WhatIsVibeCoding = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            A modern approach to coding that combines creativity, efficiency, and practical problem-solving for Operations professionals.
+            A friendly way to learn coding that focuses on solving everyday work tasks - perfect for beginners in Operations!
           </motion.p>
         </div>
       </section>
@@ -55,23 +55,23 @@ const WhatIsVibeCoding = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
               {
-                title: "Practical Focus",
-                description: "Solve real problems in your daily work, not theoretical exercises.",
+                title: "Learn by Doing",
+                description: "Start with simple tasks you do every day and learn how to make them easier with code.",
                 icon: "🎯"
               },
               {
-                title: "Learn by Doing",
-                description: "Start with small projects and build up your skills naturally.",
+                title: "Step by Step",
+                description: "Build your skills naturally by working on real tasks that matter to you.",
                 icon: "🚀"
               },
               {
-                title: "Modern Tools",
-                description: "Leverage AI and modern development environments to enhance your workflow.",
+                title: "Friendly Tools",
+                description: "Use helpful tools like AI assistants that make learning easier and more fun.",
                 icon: "⚡"
               },
               {
-                title: "Creative Problem Solving",
-                description: "Think outside the box and find innovative solutions to Operations challenges.",
+                title: "Your Way",
+                description: "Find creative ways to solve work problems - there's no single 'right' way to do it!",
                 icon: "💡"
               }
             ].map((principle, index) => (
@@ -115,18 +115,18 @@ const WhatIsVibeCoding = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Increased Efficiency",
-                description: "Automate repetitive tasks and streamline your workflows.",
+                title: "Save Time",
+                description: "Let code handle the boring, repetitive tasks so you can focus on what matters.",
                 icon: "⚡"
               },
               {
-                title: "Better Insights",
-                description: "Gain deeper understanding of your data and processes.",
+                title: "Work Smarter",
+                description: "Find new ways to understand and improve how your team works.",
                 icon: "🔍"
               },
               {
-                title: "Career Growth",
-                description: "Develop valuable skills that set you apart in Operations.",
+                title: "Grow Your Skills",
+                description: "Learn valuable skills that help you do more in your Operations role.",
                 icon: "📈"
               }
             ].map((benefit, index) => (
@@ -164,7 +164,7 @@ const WhatIsVibeCoding = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Ready to Start Vibe Coding?
+            Ready to Begin?
           </motion.h2>
           <motion.p 
             className="text-xl text-neon-light-gray mb-8 max-w-2xl mx-auto"
@@ -173,7 +173,7 @@ const WhatIsVibeCoding = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Check out our getting started guide and begin your coding journey today
+            We'll walk you through everything you need to know, one small step at a time
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -182,7 +182,7 @@ const WhatIsVibeCoding = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <a href="/getting-started" className="neon-button-primary">
-              Get Started
+              Start Here
             </a>
           </motion.div>
         </div>
